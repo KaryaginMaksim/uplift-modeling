@@ -187,21 +187,32 @@ A standard classifier can have strong ROC-AUC and still be useless for campaign 
 
 ---
 
-## 🧱 Expected Repository Structure
+## 🧱 Repository Structure
 
 ```text
 uplift-modeling/
 ├── README.md
 ├── requirements.txt
 ├── data/
-│   └── .gitkeep
 ├── notebooks/
-│   └── .gitkeep
 ├── reports/
-│   └── .gitkeep
 └── src/
-    └── .gitkeep
+    ├── data.py
+    ├── two_model.py
+    ├── class_transformation.py
+    ├── uplift_random_forest.py
+    ├── evaluation.py
+    └── run_demo.py
 ```
+
+### Core files
+
+- `src/data.py` — synthetic dataset generator with heterogeneous treatment effect
+- `src/two_model.py` — baseline two-model uplift estimator
+- `src/class_transformation.py` — single-model class transformation approach
+- `src/uplift_random_forest.py` — specialized uplift random forest wrapper via `causalml`
+- `src/evaluation.py` — uplift-specific metrics helpers including Qini-style gain and AUUC
+- `src/run_demo.py` — minimal runnable example for comparing baseline approaches
 
 ---
 
@@ -332,4 +343,3 @@ The final outcome is not “best accuracy”.
 The final outcome is:
 
 > better campaign decisions with lower cost and higher incremental return.
-
